@@ -393,20 +393,18 @@
 <!--														</details>-->
 <!--														<details>-->
 															<summary><h4><strong>4. 결재문서 상세보기 - 권한 검증 & 보안 - click</strong></h4></summary>
-														<b>문제 :</b>
-														결재문서 상세보기에서 결재라인, 참조자, 해당 팀의 부서장만 문서를 열람할 수 있도록 구현해야 했습니다.<br>
-														그러나 권한이 없는 사용자가 URL을 직접 입력하여 접근하려는 경우를 어떻게 차단할지 고민이 있었습니다.<br>
+														<b>문제 :</b><br>
+														결재문서 상세보기 페이지에서 결재 라인, 참조자, 그리고 해당 팀의 부서장만 문서를 열람할 수 있도록 구현해야 했습니다.<br>
+														하지만, 권한이 없는 사용자가 URL을 직접 입력해 접근하려고 할 경우를 어떻게 차단할지 고민이 있었습니다.<br>
 														<br>
-														기본적으로, 본인만 결재문서를 볼 수 있도록 하는 경우에는
-														Spring Security 에서 세션 정보를 가져와 간단히 비교하면 되었지만,
-														부서장, 결재자(중간/최종), 참조자도 접근할 수 있도록<br>
-														해야 하는 상황에서 권한 검증 방식을 어떻게 구현할지 고민이 되었습니다.<br>
-														<br>
+														단순히 본인만 볼 수 있는 결재문서는 Spring Security 에서 세션 정보를 이용해 확인할 수 있었지만,<br>
+														부서장, 중간/최종 결재자, 참조자 등 다양한 역할별로 접근 권한을 부여해야 하는 상황에서 어떻게 구현할지 고민이 컸습니다.<br>
+													<br>
 														<b>해결 및 개선 :</b>
 														<br>
-														이 문제를 해결하기 위해 Access 메서드를 구현하여,
-														현재 로그인된 사용자의 역할(Role)과 PK 값을 가져와
-														해당 문서에 접근할 수 있는 사용자들의 PK 목록과 비교하도록 처리했습니다.<br>
+														이 문제를 해결하기 위해 <strong>Access 메서드</strong>를 별도로 구현하여,
+														현재 로그인된 사용자의 <strong>역할(Role) 및 PK</strong>를 조회하고,
+														해당 문서에 접근 가능한 사용자 목록과 비교하도록 처리했습니다.<br>
 															<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/draft/service/DraftService.java" target='_blank'>Access GITHUB 코드 보러가기</a></strong>
 															<br>
 														<br>
@@ -417,16 +415,16 @@
 														<br>
 
 															<strong>신뢰성 있는 사용자 인증:</strong><br>
-															Spring Security의 SecurityContextHolder를 활용하여 현재 사용자의 인증 정보와 권한을 안전하게 가져온 후, DB에서 조회한 데이터와 비교함으로써 무단 접근을 효과적으로 차단합니다.<br>
+															Spring Security의 SecurityContextHolder를 활용하여 현재 사용자의 인증 정보와 권한을 안전하게 가져온 뒤 DB에서 조회한 데이터와 비교함으로써 무단 접근을 효과적으로 차단했습니다..<br>
 
 																<strong>명확한 역할 기반 접근 제어:</strong><br>
-															부서장, 중간 결재자, 최종 결재자, 참조자 등 각 역할에 따른 접근 권한을 개별 메서드로 구분하여 처리함으로써, 구체적이고 세밀한 권한 검증이 가능합니다.<br>
+															부서장, 중간 결재자, 최종 결재자, 참조자 등 각 역할에 따른 접근 권한을 개별 메서드로 구분하여 처리함으로써, 구체적이고 세밀한 권한 검증이 가능해했습니다.<br>
 
 																	<strong>URL 직접 입력에 대한 방어:</strong><br>
-															권한이 없는 사용자가 URL을 직접 입력하여 접근하려고 하는 상황을 미리 차단할 수 있도록, 조건에 맞는 사용자만 상세보기 페이지에 접근하도록 구현되어 보안을 강화합니다.<br>
+															권한이 없는 사용자가 URL을 직접 입력하여 접근하려고 하는 상황을 미리 차단할 수 있도록, 필요한 권한을 충족하지 않으면 상세보기 페이지에 도달할 수 없도록 하여 보안을 강화했습니다.<br>
 
 																		<strong>모듈화된 승인 검증:</strong><br>
-															결재 과정의 각 단계(중간, 최종, 반려)에 대해 별도의 유효성 검사 메서드를 구현하여, 각 승인 단계에 맞는 검증 로직을 독립적으로 관리할 수 있는 구조를 갖추고 있습니다.<br>
+															결재 과정의 각 단계(중간, 최종, 반려)에 대해 독립적인 유효성 검사 메서드를 구현하여 각 승인 단계별 검증 로직을 체계적으로 관리할 수 있게 했습니다.<br>
 															<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/approval/service/ApprovalActionService.java" target='_blank'>승인 로직 GITHUB 코드 보러가기</a></strong>
 															<br>
 															<br>
