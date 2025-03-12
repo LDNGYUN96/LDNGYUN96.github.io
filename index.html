@@ -298,7 +298,7 @@
 														이 문제를 해결하기 위해 <strong>Access 메서드</strong>를 별도로 구현하여,
 														현재 로그인된 사용자의 <strong>역할(Role) 및 PK</strong>를 조회하고,
 														해당 문서에 접근 가능한 사용자 목록과 비교하도록 처리했습니다.<br>
-														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/draft/service/DraftService.java#L36" target='_blank'>Access GITHUB 코드 보러가기</a></strong>
+														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/draft/service/DraftService.java#L36" target='_blank'>DraftService.java(접근 로직)코드</a></strong>
 														<br>
 														<br>
 														이를 통해, 접근 권한이 있는 사용자만 상세보기를 허용하고,
@@ -318,7 +318,7 @@
 
 														<strong>모듈화된 승인 검증:</strong><br>
 														결재 과정의 각 단계(중간, 최종, 반려)에 대해 독립적인 유효성 검사 메서드를 구현하여 각 승인 단계별 검증 로직을 체계적으로 관리할 수 있게 했습니다.<br>
-														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/approval/service/ApprovalActionService.java#L41" target='_blank'>승인 로직 GITHUB 코드 보러가기</a></strong>
+														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/approval/service/ApprovalActionService.java#L41" target='_blank'>ApprovalActionService.java(결재 로직)코드</a></strong>
 														<br>
 														<br>
 													</details>
@@ -413,7 +413,7 @@
 														단일 @GetMapping에서 모든 유형을 처리할 수 있도록 변경했습니다.<br>
 														이를 통해 각 문서 유형을 별도로 매핑할 필요 없이 URL 자체로 문서 유형을 식별하면서도<br>
 														유지보수가 용이한 고유한 URL을 가질 수 있도록 개선했습니다.<br>
-														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/draft/controller/DraftController.java" target='_blank'>GITHUB 코드 보러가기</a></strong>
+														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/draft/controller/DraftController.java#L28" target='_blank'>DraftController.java(GITHUB 코드 보러가기)</a></strong>
 														<br><br>
 
 														<b>개선점 :</b>
@@ -426,7 +426,7 @@
 
 														공통 코드의 description 컬럼이 한글로 저장되어 있어<br>
 														이를 직접 URL에 적용하는 것이 어려웠던 점이 개선이 필요한 부분입니다.<br>
-
+														<br>
 													</details>
 													<details>
 														<summary><h4><strong>5. [결재문서 작성 폼] 유형별 공통화와 최적화 방식 결정 - click</strong></h4></summary>
@@ -443,7 +443,7 @@
 														필요한 값만 표시하고 나머지는 숨기는 방식을 선택했습니다.<br>
 														숨겨진 부분의 내용은 초기화하여 불필요한 데이터가 전달되지 않도록 처리했습니다.<br>
 														최종적으로, 각 유형별로 입력된 데이터를 분리하여 DB에 저장되도록 설계했습니다.<br>
-														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/webapp/WEB-INF/view/approval/approval.jsp" target='_blank'>결재작성 페이지 코드 보러가기</a></strong>
+														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/webapp/WEB-INF/view/approval/approval.jsp#L446" target='_blank'>approval.jsp(javaScript) 코드</a></strong>
 														<br>
 														<br>
 														<b>장점 :</b>
@@ -482,7 +482,7 @@
 														<b>해결 및 개선 :</b>
 														<br>
 														기존 보안 및 세션 관리 체계와의 일관성을 유지하기 위해 Spring Security 컨텍스트 업데이트 방식을 선택했습니다.<br>
-														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/user/service/EmpProfileService.java" target='_blank'>GITHUB 코드 보러가기</a></strong>
+														<strong style="color: #66afe9"><a href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/user/service/EmpProfileService.java#L55" target='_blank'>EmpProfileService.java(Security Context Update)코드</a></strong>
 														<br><br>
 														<strong>시큐리티 컨텍스트 동기화:</strong> 프로필 정보 업데이트 시 SecurityContextHolder에서 현재 사용자의 인증 객체를 재생성하여 변경된 정보를 즉시 반영하도록 구현했습니다.<br>
 														<strong>DB 와 세션 데이터 일관성 강화:</strong> DB에 반영된 최신 프로필 정보를 조회한 후 인증 객체에 갱신된 데이터를 설정하여, 세션과 DB 간 데이터 불일치 문제를 방지했습니다.<br>
