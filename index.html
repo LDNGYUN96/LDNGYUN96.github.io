@@ -83,7 +83,7 @@
 							<li><a href="#" data-nav-section="about">About</a></li>
 							<li><a href="#" data-nav-section="skills">Tech Skills</a></li>
 							<li><a href="#" data-nav-section="work">Project</a></li>
-							<li><a href="#" data-nav-section="education">Education</a></li>
+<!--							<li><a href="#" data-nav-section="education">Education</a></li>-->
 							<li><a href="#" data-nav-section="contact">contact</a></li>
 						</ul>
 					</div>
@@ -167,6 +167,7 @@
 										<div class="progress"></div>
 										Spring Boot: 웹 프로젝트 경험을 통해 Spring의 전반적인 구조 이해<br>
 										MyBatis: 데이터 매핑 구조 설계 및 효율적인 쿼리 실행 경험<br>
+										JPA: 객체 관계 매핑(ORM)을 활용한 데이터 처리 경험 <br>
 										JSP / JSTL: 서버 사이드 렌더링을 위한 JSP 및 태그 라이브러리 활용<br>
 										jQuery: 동적인 UI 처리를 위한 JavaScript 라이브러리<br>
 									</div>
@@ -215,10 +216,8 @@
 													<h2 style="color: #46AAFF;">
 														<strong>프랜차이즈 그룹웨어</strong>
 													</h2>
-													<p>
-														<img src="images/main_group.png" style="width: 100%;" >
-														<img src="images/group_franchise.png" style="width: 100%;" >
-													</p>
+														<img src="images/main_group.png" style="width: 100%;" alt="사진">
+														<img src="images/group_franchise.png" style="width: 100%;" alt="사진">
 <!--													<p>-->
 <!--														<strong>Keyword</strong> <br> # Spring boot # Spring Security-->
 <!--														# MySQL # JAVA # JQuery # AJax # MyBatis #JSP <br>-->
@@ -284,8 +283,8 @@
 														<h3><strong>구현 과정에서 겪은 문제해결 및 개선사례</strong></h3>
 													<br>
 
-													<details>
-														<summary><h4><strong>1. [결재문서 상세보기] 역할별 접근 제어 & 보안 설계 - click</strong></h4></summary>
+<!--													<details>-->
+														<summary><h4><strong>1. [결재문서 상세보기] 역할별 접근 제어 & 보안 설계</strong></h4></summary>
 														<b>문제 :</b><br>
 														결재문서 상세보기 페이지에서 결재 라인, 참조자, 그리고 해당 팀의 부서장만 문서를 열람할 수 있도록 구현해야 했습니다.<br>
 														하지만, 권한이 없는 사용자가 URL을 직접 입력해 접근하려고 할 경우를 어떻게 차단할지 고민이 있었습니다.<br>
@@ -321,9 +320,9 @@
 														<strong style="color: #66afe9"><a  href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/approval/service/ApprovalActionService.java#L41" target='_blank'>ApprovalActionService.java(결재 로직)코드</a></strong>
 														<br>
 														<br>
-													</details>
-													<details>
-														<summary><h4><strong>2. [결재 승인 쿼리 로직] 단계별 서명 노출 최적화 - click</strong></h4></summary>
+<!--													</details>-->
+<!--													<details>-->
+														<summary><h4><strong>2. [결재 승인 쿼리 로직] 단계별 서명 노출 최적화</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														중간 결재자 또는 최종 결재자가 승인해야만 서명 이미지가 표시되도록 해야 했습니다.<br>
@@ -364,10 +363,10 @@
 														<strong>보안성·유지보수성</strong>: 서버·프론트에서 불필요하게 민감 정보를 다루지 않아, 보안상 안전하고 로직 중복이 줄어들었습니다.<br>
 														<strong>간결한 코드</strong>: CASE문 분기로 결재 상태를 일괄 처리해, 여러 메서드에서 분산 구현할 필요가 없어졌습니다.
 														<br><br>
-													</details>
+<!--													</details>-->
 
-													<details>
-														<summary><h4><strong>3. [결재 문서 목록] 대량 데이터 페이징 & 검색 성능 개선 - click</strong></h4></summary>
+<!--													<details>-->
+														<summary><h4><strong>3. [결재 문서 목록] 대량 데이터 페이징 & 검색 성능 개선</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														프로젝트 초기에 결재 문서 누적에 대비하고자, 테스트 환경에서
@@ -393,11 +392,11 @@
 														<strong>확장성 증가:</strong> 데이터가 많아질수록 기존 방식은 성능 저하가 심했지만,
 														서버에서 직접 페이징 및 검색을 처리하므로 데이터량이 증가해도 원활한 처리가 가능합니다.<br>
 														<br>
-													</details>
+<!--													</details>-->
 
 
-													<details>
-														<summary><h4><strong>4. [URL 매핑 구조] 중복 매핑 리팩토링으로 유지보수성 향상 - click</strong></h4></summary>
+<!--													<details>-->
+														<summary><h4><strong>4. [URL 매핑 구조] 중복 매핑 리팩토링으로 유지보수성 향상</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														결재 문서 리스트를 구현할 때, 처음에는 각 결재 문서 유형별로 URL을 다르게 설정하고 <br>
@@ -427,9 +426,9 @@
 														공통 코드의 description 컬럼이 한글로 저장되어 있어<br>
 														이를 직접 URL에 적용하는 것이 어려웠던 점이 개선이 필요한 부분입니다.<br>
 														<br>
-													</details>
-													<details>
-														<summary><h4><strong>5. [결재문서 작성 폼] 유형별 공통화와 최적화 방식 결정 - click</strong></h4></summary>
+<!--													</details>-->
+<!--													<details>-->
+														<summary><h4><strong>5. [결재문서 작성 폼] 유형별 공통화와 최적화 방식 결정</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														결재 문서를 작성할 때, 각 유형별로 개별 페이지를 만들어야 할지<br>
@@ -469,9 +468,9 @@
 														매퍼에서 INSERT 시 DTO에 포함된 불필요한 데이터가 들어가도 자동으로 필터링되도록 처리하여,<br>
 														잘못된 데이터가 DB에 저장되는 것을 방지했습니다.<br>
 														<br>
-													</details>
-													<details>
-														<summary><h4><strong>6. [마이페이지 프로필] 실시간 반영을 위한 Security Context 업데이트 - click</strong></h4></summary>
+<!--													</details>-->
+<!--													<details>-->
+														<summary><h4><strong>6. [마이페이지 프로필] 실시간 반영을 위한 Security Context 업데이트</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														프로필 업데이트 후 오른쪽 상단의 프로필 이미지가 새로고침이나 재로그인 없이 변경 사항이 즉시 반영되지 않는 문제가 발생했습니다.<br>
@@ -499,7 +498,7 @@
 														<strong>캐시 최적화:</strong> 브라우저 캐시로 인해 갱신된 이미지가 바로 반영되지 않는 문제를 방지하기 위해 이미지 URL에 타임스탬프 또는 랜덤 파라미터를 추가해 캐시를 무효화하는 방식이 필요했습니다.<br>
 														<strong>세션 갱신 범위 최적화:</strong> 현재 프로필 이미지를 변경할 때, 이미지만 변경하는것이 아닌 사용자 정보를 갱신하고 있어 불필요한 데이터까지 함께 재생성되는 비효율성이 존재합니다.<br> 향후 이 부분을 개선하여 불필요한 데이터 재생성을 방지하고, 시스템 성능을 최적화할 필요가 있습니다.<br>
 														<br>
-													</details>
+<!--													</details>-->
 													<p>
 														<strong>Development Environment</strong> <br>
 														Language: Java17, HTML5, CSS,JavaScript, SQL<br>
@@ -545,7 +544,7 @@
 														<strong>쇼핑몰 사이트</strong>
 													</h2>
 													<p>
-														<img src="images/shop.png"  style="width: 100%;">
+														<img src="images/shop.png"  style="width: 100%;" alt="사진">
 													</p>
 <!--													<p>-->
 <!--														<strong>Keyword</strong> <br> # Session # JAVA # JSP-->
@@ -785,109 +784,109 @@
 							</div>
 							<!-- 프로젝트종료 -->
 						</div>
-						<div class="colorlib-narrow-content colorlib-education" data-section="education">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-									data-animate-effect="fadeInLeft">
-									<span class="heading-meta">Education</span>
-									<h2 class="colorlib-heading animate-box">Education</h2>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-									<div class="fancy-collapse-panel">
-										<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-	
-											<div class="panel panel-default">
-												<div class="panel-heading" role="tab" id="edu_heading_1">
-													<h4 class="panel-title">
-	
-														<a data-toggle="collapse" data-parent="#accordion"
-															href="#edu_collapser_1" aria-expanded="true"
-															aria-controls="edu_collapser_1">
-															UNIVERSITY
-														</a>
-	
-													</h4>
-												</div>
-	
-												<div id="edu_collapser_1" class="panel-collapse collapse in" role="tabpanel"
-													aria-labelledby="edu_heading_1">
-	
-													<div class="panel-body">
-														<div class="row">
-															<div class="col-md-4">
-																<p> 
-																	2025.03 ~ ing
-																</p>
-																
-															</div>
-															<div class="col-md-8">
-																<p>
-																	한국방송통신대학교 컴퓨터공학과 재학중
-																	<br>
-																</p>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-4">
-																<p>
-																	2025.02
-																</p>
-															</div>
-															<div class="col-md-8">
-																<p>
-																	학점은행제 항공정비공학과 졸업
-																	<br>
-																</p>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-	
-											<div class="panel panel-default">
-												<div class="panel-heading" role="tab" id="edu_heading_3">
-													<h4 class="panel-title">
-	
-														<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-															href="#edu_collapser_3" aria-expanded="false"
-															aria-controls="edu_collapser_3">
-															Academy
-														</a>
-													</h4>
-												</div>
-	
-												<div id="edu_collapser_3" class="panel-collapse collapse" role="tabpanel"
-													aria-labelledby="edu_heading_3">
-	
-													<div class="panel-body">
-														<div class="row">
-															<div class="col-md-4">
-																<p>
-																	구디 아카데미 학원
-																	<br>
-																	2024.08 - 2025.02
-																</p>
-															</div>
-															<div class="col-md-8">
-																<p>(KDT) 클라우드 활용 자바 개발자 양성과정</p>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+<!--						<div class="colorlib-narrow-content colorlib-education" data-section="education">-->
+<!--							<div class="row">-->
+<!--								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"-->
+<!--									data-animate-effect="fadeInLeft">-->
+<!--									<span class="heading-meta">Education</span>-->
+<!--									<h2 class="colorlib-heading animate-box">Education</h2>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="row">-->
+<!--								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">-->
+<!--									<div class="fancy-collapse-panel">-->
+<!--										<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">-->
+<!--	-->
+<!--											<div class="panel panel-default">-->
+<!--												<div class="panel-heading" role="tab" id="edu_heading_1">-->
+<!--													<h4 class="panel-title">-->
+<!--	-->
+<!--														<a data-toggle="collapse" data-parent="#accordion"-->
+<!--															href="#edu_collapser_1" aria-expanded="true"-->
+<!--															aria-controls="edu_collapser_1">-->
+<!--															UNIVERSITY-->
+<!--														</a>-->
+<!--	-->
+<!--													</h4>-->
+<!--												</div>-->
+<!--	-->
+<!--												<div id="edu_collapser_1" class="panel-collapse collapse in" role="tabpanel"-->
+<!--													aria-labelledby="edu_heading_1">-->
+<!--	-->
+<!--													<div class="panel-body">-->
+<!--														<div class="row">-->
+<!--															<div class="col-md-4">-->
+<!--																<p> -->
+<!--																	2025.03 ~ ing-->
+<!--																</p>-->
+<!--																-->
+<!--															</div>-->
+<!--															<div class="col-md-8">-->
+<!--																<p>-->
+<!--																	한국방송통신대학교 컴퓨터공학과 재학중-->
+<!--																	<br>-->
+<!--																</p>-->
+<!--															</div>-->
+<!--														</div>-->
+<!--														<div class="row">-->
+<!--															<div class="col-md-4">-->
+<!--																<p>-->
+<!--																	2025.02-->
+<!--																</p>-->
+<!--															</div>-->
+<!--															<div class="col-md-8">-->
+<!--																<p>-->
+<!--																	학점은행제 항공정비공학과 졸업-->
+<!--																	<br>-->
+<!--																</p>-->
+<!--															</div>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--	-->
+<!--											<div class="panel panel-default">-->
+<!--												<div class="panel-heading" role="tab" id="edu_heading_3">-->
+<!--													<h4 class="panel-title">-->
+<!--	-->
+<!--														<a class="collapsed" data-toggle="collapse" data-parent="#accordion"-->
+<!--															href="#edu_collapser_3" aria-expanded="false"-->
+<!--															aria-controls="edu_collapser_3">-->
+<!--															Academy-->
+<!--														</a>-->
+<!--													</h4>-->
+<!--												</div>-->
+<!--	-->
+<!--												<div id="edu_collapser_3" class="panel-collapse collapse" role="tabpanel"-->
+<!--													aria-labelledby="edu_heading_3">-->
+<!--	-->
+<!--													<div class="panel-body">-->
+<!--														<div class="row">-->
+<!--															<div class="col-md-4">-->
+<!--																<p>-->
+<!--																	구디 아카데미 학원-->
+<!--																	<br>-->
+<!--																	2024.08 - 2025.02-->
+<!--																</p>-->
+<!--															</div>-->
+<!--															<div class="col-md-8">-->
+<!--																<p>(KDT) 클라우드 활용 자바 개발자 양성과정</p>-->
+<!--															</div>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 						<section class="colorlib-contact" data-section="contact">
 							<div class="colorlib-narrow-content">
 								<div class="row">
 									<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
 										data-animate-effect="fadeInLeft">
-										<span class="heading-meta">Get in Touch</span>
+										<span class="heading-meta">Get in</span>
 										<h2 class="colorlib-heading">Contact</h2>
 									</div>
 								</div>
@@ -918,17 +917,17 @@
 											</div>
 										</div>
 		
-										<div class="colorlib-feature colorlib-feature-sm animate-box"
-											data-animate-effect="fadeInLeft">
-											<div class="colorlib-icon">
-												<i class="icon-map"></i>
-											</div>
-											<div class="colorlib-text">
-												<p>
-													경기도 안양시
-												</p>
-											</div>
-										</div>
+<!--										<div class="colorlib-feature colorlib-feature-sm animate-box"-->
+<!--											data-animate-effect="fadeInLeft">-->
+<!--											<div class="colorlib-icon">-->
+<!--												<i class="icon-map"></i>-->
+<!--											</div>-->
+<!--											<div class="colorlib-text">-->
+<!--												<p>-->
+<!--													경기도 안양시-->
+<!--												</p>-->
+<!--											</div>-->
+<!--										</div>-->
 		
 		
 									</div>
@@ -1092,37 +1091,37 @@
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
 	<!-- mail -->
-	<script data-cfasync="false" type="text/javascript"
-		src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+<!--	<script data-cfasync="false" type="text/javascript"-->
+<!--		src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>-->
 
-	<script type="text/javascript">
-		function createData() {
-			var sendData = $('#gform').serialize();
-			return sendData;
-		}
-		function mailSend() {
-			$.ajax({
-				type: "POST",
-				url: "https://script.google.com/macros/s/AKfycbz-frwBTGvIeei6eC125WczGVfQwFRHrCiw5veAUA/exec",
-				data: createData(),
-				datatype: "json",
-				success: function (data, status, xhr) {
-					var input = confirm('연락주셔서 영광입니다. 24시간 이내에는 꼭 회신드리도록 하겠습니다! :)');
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					console.log("error")
-					//여기는 메일이 안보내졌을 때 발생하는 문제가 있을 때 인것 같아요
-				}
-			});
-		}
+<!--	<script type="text/javascript">-->
+<!--		function createData() {-->
+<!--			var sendData = $('#gform').serialize();-->
+<!--			return sendData;-->
+<!--		}-->
+<!--		// function mailSend() {-->
+<!--		// 	$.ajax({-->
+<!--		// 		type: "POST",-->
+<!--		// 		url: "https://script.google.com/macros/s/AKfycbz-frwBTGvIeei6eC125WczGVfQwFRHrCiw5veAUA/exec",-->
+<!--		// 		data: createData(),-->
+<!--		// 		datatype: "json",-->
+<!--		// 		success: function (data, status, xhr) {-->
+<!--		// 			var input = confirm('연락주셔서 영광입니다. 24시간 이내에는 꼭 회신드리도록 하겠습니다! :)');-->
+<!--		// 		},-->
+<!--		// 		error: function (jqXHR, textStatus, errorThrown) {-->
+<!--		// 			console.log("error")-->
+<!--		// 			//여기는 메일이 안보내졌을 때 발생하는 문제가 있을 때 인것 같아요-->
+<!--		// 		}-->
+<!--		// 	});-->
+<!--		// }-->
 
-		//    $("a").bind("click", function(e) {
-		//     e.preventDefault();
-		//     var id = $(this).data("section");
-		//       $("#content section:visible").fadeOut();
-		//       $(id).fadeIn();
-		// });
-	</script>
+<!--		//    $("a").bind("click", function(e) {-->
+<!--		//     e.preventDefault();-->
+<!--		//     var id = $(this).data("section");-->
+<!--		//       $("#content section:visible").fadeOut();-->
+<!--		//       $(id).fadeIn();-->
+<!--		// });-->
+<!--	</script>-->
 
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
