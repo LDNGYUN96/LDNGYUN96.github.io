@@ -285,8 +285,9 @@
 													<h3><strong>구현 과정에서 겪은 문제해결 및 개선사례</strong></h3>
 													<br>
 
-<!--													<details>-->
-														<summary><h4><strong>1. [결재문서 상세보기] 역할별 접근 제어 & 보안 설계</strong></h4></summary>
+													<details>
+														<summary><h4><strong>1. [결재문서 상세보기] 역할별 접근 제어 & 보안 설계 -
+															click</strong></h4></summary>
 														<b>문제 :</b><br>
 														결재문서 상세보기 페이지에서 결재 라인, 참조자, 그리고 해당 팀의 부서장만 문서를 열람할 수 있도록 구현해야
 														했습니다.<br>
@@ -333,9 +334,10 @@
 																target='_blank'>ApprovalActionService.java(결재 로직)코드</a></strong>
 														<br>
 														<br>
-<!--													</details>-->
-<!--													<details>-->
-														<summary><h4><strong>2. [결재 승인 쿼리 로직] 단계별 서명 노출 최적화</strong></h4></summary>
+													</details>
+													<details>
+														<summary><h4><strong>2. [결재 승인 쿼리 로직] 단계별 서명 노출 최적화 -
+															click</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														중간 결재자 또는 최종 결재자가 승인해야만 서명 이미지가 표시되도록 해야 했습니다.<br>
@@ -384,10 +386,11 @@
 														<strong>간결한 코드</strong>: CASE문 분기로 결재 상태를 일괄 처리해, 여러 메서드에서 분산
 														구현할 필요가 없어졌습니다.
 														<br><br>
-<!--													</details>-->
+													</details>
 
-<!--													<details>-->
-														<summary><h4><strong>3. [결재 문서 목록] 대량 데이터 페이징 & 검색 성능 개선</strong></h4></summary>
+													<details>
+														<summary><h4><strong>3. [결재 문서 목록] 대량 데이터 페이징 & 검색 성능 개선 -
+															click</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														프로젝트 초기에 결재 문서 누적에 대비하고자, 테스트 환경에서
@@ -419,9 +422,12 @@
 														<strong>확장성 증가:</strong> 데이터가 많아질수록 기존 방식은 성능 저하가 심했지만,
 														서버에서 직접 페이징 및 검색을 처리하므로 데이터량이 증가해도 원활한 처리가 가능합니다.<br>
 														<br>
-<!--													</details>-->
-<!--													<details>-->
-														<summary><h4><strong>4. [URL 매핑 구조] 중복 매핑 리팩토링으로 유지보수성 향상</strong></h4></summary>
+													</details>
+
+
+													<details>
+														<summary><h4><strong>4. [URL 매핑 구조] 중복 매핑 리팩토링으로 유지보수성 향상 -
+															click</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														결재 문서 리스트를 구현할 때, 처음에는 각 결재 문서 유형별로 URL을 다르게 설정하고 <br>
@@ -455,9 +461,10 @@
 														공통 코드의 description 컬럼이 한글로 저장되어 있어<br>
 														이를 직접 URL에 적용하는 것이 어려웠던 점이 개선이 필요한 부분입니다.<br>
 														<br>
-<!--													</details>-->
-<!--													<details>-->
-														<summary><h4><strong>5. [결재문서 작성 폼] 유형별 공통화와 최적화 방식 결정</strong></h4></summary>
+													</details>
+													<details>
+														<summary><h4><strong>5. [결재문서 작성 폼] 유형별 공통화와 최적화 방식 결정 -
+															click</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														결재 문서를 작성할 때, 각 유형별로 개별 페이지를 만들어야 할지<br>
@@ -499,9 +506,10 @@
 														매퍼에서 INSERT 시 DTO에 포함된 불필요한 데이터가 들어가도 자동으로 필터링되도록 처리하여,<br>
 														잘못된 데이터가 DB에 저장되는 것을 방지했습니다.<br>
 														<br>
-<!--													</details>-->
-<!--													<details>-->
-														<summary><h4><strong>6. [마이페이지 프로필] 실시간 반영을 위한 Security Context</strong></h4></summary>
+													</details>
+													<details>
+														<summary><h4><strong>6. [마이페이지 프로필] 실시간 반영을 위한 Security Context
+															업데이트 – click</strong></h4></summary>
 														<b>문제 :</b>
 														<br>
 														로그인을 한 후 모든 페이지에 표시되는 프로필 이미지가 매번 DB에 요청되는 방식은 비효율적이라고<br>
@@ -559,7 +567,7 @@
 															</a>
 														</strong>
 														<br><br>
-<!--													</details>-->
+													</details>
 													<p>
 														<strong>Development Environment</strong> <br>
 														Language: Java17, HTML5, CSS,JavaScript, SQL<br>
