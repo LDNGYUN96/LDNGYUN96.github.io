@@ -492,6 +492,19 @@
 																href="https://github.com/LYUN555/haruon/blob/ldy/src/main/webapp/WEB-INF/view/approval/approval.jsp#L446"
 																target='_blank'>approval.jsp(javaScript) 코드</a></strong>
 														<br>
+
+														<br>
+														유형별 입력 항목이 많아지면 가독성이 떨어질 가능성이 있으며<br>
+														유형이 많아질수록 한 페이지 내에서 개별 필드의 검증이 증가하는 문제가 발생할 수 있습니다.<br>
+														유형을 변경할 때 필요하지 않은 필드 값이 그대로 남아있어<br>
+														잘못된 데이터가 포함될 가능성이 있습니다.<br>
+														이 문제를 해결하기 위해, 컨트롤러에서 공통 필드 값에 대한 기본적인 검증을 수행한 후<br>
+														서비스 레이어에서는 각 유형별 필수 입력 값만 체크하여<br>
+														불필요한 데이터 입력을 최소화하고 데이터 무결성을 지켰습니다.<br>
+														<strong style="color: #66afe9"><a
+																href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/approval/service/ApprovalService.java#L65"
+																target='_blank'>ApprovalService.java(유효성 검증 로직) 코드</a></strong>
+														<br>
 														<br>
 														<b>장점 :</b>
 														<br>
@@ -503,18 +516,8 @@
 														필요한 데이터만 서버로 전송되도록 최적화할 수 있습니다.
 														<br>
 														<br>
-														<b>개선점 :</b>
-														<br>
-														유형별 입력 항목이 많아지면 가독성이 떨어질 가능성이 있으며<br>
-														유형이 많아질수록 한 페이지 내에서 개별 필드의 검증이 증가하는 문제가 발생할 수 있습니다.<br>
-														<br>
-														유형을 변경할 때 필요하지 않은 필드 값이 그대로 남아있어<br>
-														잘못된 데이터가 포함될 가능성이 있습니다.<br>
-														이 문제를 해결하기 위해, 컨트롤러에서 공통 필드 값에 대한 기본적인 검증을 수행한 후<br>
-														서비스 레이어에서는 각 유형별 필수 입력 값만 체크하여<br>
-														불필요한 데이터 입력을 최소화하고 데이터 무결성을 지켰습니다.<br>
-														매퍼에서 INSERT 시 DTO에 포함된 불필요한 데이터가 들어가도 자동으로 필터링되도록 처리하여,<br>
-														잘못된 데이터가 DB에 저장되는 것을 방지했습니다.<br>
+
+
 														<br>
 													</details>
 													<details>
