@@ -544,11 +544,19 @@
 														<strong>해결 및 개선 :</strong>
 														<br>
 														매 페이지마다 DB에 요청하는 방식이 비효율적이라 생각하여 SecurityContextHolder 업데이트 방식을
-														최종 선택했습니다.
-														<br><br>
+														최종 선택했습니다.<br>
+														<strong style="color: #66afe9">
+															<a href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/user/service/EmpProfileService.java#L55"
+															   target="_blank">
+																EmpProfileService.java (Security Context Update) 코드 보기
+															</a>
+														</strong><br>
+														<br>
 														<strong>시큐리티 컨텍스트 동기화:</strong> 프로필 정보 업데이트 시
 														SecurityContextHolder에서 현재 사용자의 인증 객체를 재생성하여 변경된 정보를 즉시 반영하도록
-														구현했습니다.<br>
+														구현했습니다.
+
+
 														<strong>DB와 세션 데이터 일관성 강화:</strong> DB에 반영된 최신 프로필 정보를 조회한 후 인증
 														객체에 갱신된 데이터를 설정하여 세션과 DB 간 데이터 불일치 문제를 방지했습니다.<br>
 														<strong>리소스 절약:</strong> AJAX 방식이나 매 페이지 DB 호출 대신 보안 컨텍스트를 활용하여
@@ -572,12 +580,7 @@
 														방식으로 동작하여 불필요한 데이터까지 재생성되는 비효율성이 존재합니다. 향후 필요한 데이터만 갱신하도록 개선할
 														필요가 있습니다.
 														<br>
-														<strong style="color: #66afe9">
-															<a href="https://github.com/LYUN555/haruon/blob/ldy/src/main/java/com/haruon/groupware/user/service/EmpProfileService.java#L55"
-															   target="_blank">
-																EmpProfileService.java (Security Context Update) 코드 보기
-															</a>
-														</strong>
+
 														<br><br>
 													</details>
 													<p>
